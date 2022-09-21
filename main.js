@@ -1,10 +1,10 @@
-// SlideShow & progressBar
 const screen = document.querySelector(".mobile__screen");
 const slides = document.querySelectorAll(".slide");
 const sliderCount = document.querySelector(".slider__count");
 const progress = document.querySelector(".progress__animation");
-const inputs = document.querySelector(".inputs").querySelectorAll("input");
 let slide = 0;
+
+// SlideShow & progressBar
 
 for (let i = 0; i < slides.length - 1; i++) {
   var count = document.createElement("div");
@@ -13,11 +13,24 @@ for (let i = 0; i < slides.length - 1; i++) {
   sliderCount.appendChild(count);
 }
 
+// Slide on click
+
 const handleSlide = (slide) => {
   slides[slide].classList.add("active");
   slides[slide - 1].classList.remove("active");
   progress.style.width = (100 / (slides.length - 1)) * slide + "%";
 };
+
+const slideShow = () => {
+  if (slide < slides.length - 1) {
+    slide++;
+    handleSlide(slide);
+  }
+};
+
+screen.addEventListener("click", slideShow);
+
+// Auto slide
 
 const autoSlide = () => {
   if (slide < slides.length - 1) {
@@ -28,14 +41,7 @@ const autoSlide = () => {
     clearInterval(myInterval);
   }
 };
-const slideShow = () => {
-  if (slide < slides.length - 1) {
-    slide++;
-    handleSlide(slide);
-  }
-};
 
-screen.addEventListener("click", slideShow);
 const myInterval = setInterval(autoSlide, 3000);
 
 // Input Numbers
@@ -47,25 +53,27 @@ const inputNumber = document.querySelector(".input__number");
 const sendButton = document.querySelector(".btn__send");
 const getInput = () => inputNumber.value;
 const setInput = (num) => (inputNumber.value = num);
+const inputs = document.querySelector(".inputs").querySelectorAll("input");
 
-let inp = -1;
+// Get input from keypad
+
 numbers.forEach((num) => {
   num.addEventListener("click", (event) => {
     let input = getInput();
     setInput(input + event.target.innerText);
     validateInput();
-    if (event) {
-      inp++;
-      inputs[inp].value = event.target.innerText;
-    }
   });
 });
+
+// Delete input number
 
 const deleteInput = () => {
   let input = getInput();
   setInput(input.substring(0, input.length - 1));
   validateInput();
 };
+
+// Focus Input & Popup keypad
 
 const toggleOverlay = (isFocus) => {
   isFocus
@@ -75,11 +83,15 @@ const toggleOverlay = (isFocus) => {
     : overlay.classList.remove("active") + bottom.classList.remove("active");
 };
 
+// Validate input to enable send button
+
 const validateInput = () => {
   let input = getInput();
   input.length >= 10 && sendButton.classList.add("validate");
   input.length <= 10 && sendButton.classList.remove("validate");
 };
+
+// Handle Send Button
 
 function handleSend(counter) {
   if (counter < 100) {
@@ -102,10 +114,36 @@ function handleSend(counter) {
 
   sendButton.style.setProperty("--afterBack", counter + "%");
   sendButton.querySelector("span").innerText = `${activeStage[1]}...`;
+
+  // switch screen
+
   if (counter == 100) {
     document.body.style.backgroundImage = "linear-gradient(180deg, #fff, #fff)";
     screen.classList.add("screen2");
     document.getElementById("first").focus();
+
+    // input otp from keypad
+
+    let inp = -1;
+    numbers.forEach((num) => {
+      num.addEventListener("click", (event) => {
+        if (event) {
+          if (inp <= 2) {
+            inp++;
+            inputs[inp].value = event.target.innerText;
+          }
+        }
+      });
+    });
+
+    // delete otp
+
+    document.querySelector(".delete").addEventListener("click", () => {
+      if (inp >= 0) {
+        inputs[inp].value = "";
+        inp--;
+      }
+    });
   }
 }
 
