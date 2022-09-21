@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Autoslider with progress bar</title>
+  </head>
+  <body>
+    <div class="mobile__screen">
+      <div class="screen__1">
+        <div class="progress__bar">
+          <div class="progress__animation"></div>
+          <div class="slider__count"></div>
+        </div>
+        <div class="slider__container">
+          <div class="slide active">
+            <h2>Slide 01</h2>
+            <img src="images/slide1.png" />
+          </div>
+          <div class="slide">
+            <h2>Slide 02</h2>
+            <img src="images/slide2.png" />
+          </div>
+          <div class="slide">
+            <h2>Slide 03</h2>
+            <img src="images/slide3.png" />
+          </div>
+          <div class="slide">
+            <h2>Slide 04</h2>
+            <img src="images/slide4.png" />
+          </div>
+          <div class="slide">
+            <h2>Slide 05</h2>
+            <img src="images/slide1.png" />
+          </div>
+        </div>
+      </div>
+      <div class="screen__2">
+        <h2>Vérification du numéro</h2>
+        <div class="screen__center">
+          <h4>Tapez le code ou cliquez sur le lien reçu au</h4>
+          <h4 class="text-blue">+33 6 25 33 55 22</h4>
+          <div class="inputs">
+            <input
+              id="first"
+              maxlength="1"
+              type="text"
+              oninput="handleOtp(this, 'second')"
+            />
+            <input
+              id="second"
+              maxlength="1"
+              type="text"
+              oninput="handleOtp(this, 'third')"
+            />
+            <input
+              id="third"
+              maxlength="1"
+              type="text"
+              oninput="handleOtp(this, 'last')"
+            />
+            <input id="last" maxlength="1" type="text" />
+          </div>
+          <p class="link">Recevoir un nouveau code ou lien</p>
+        </div>
+      </div>
+      <div onclick="toggleOverlay(false)" class="screen__overlay"></div>
+      <div class="screen__bottom">
+        <div class="input__container">
+          <div class="input__flag">
+            <img src="./images/france.png" alt="" />
+            <span>33</span>
+          </div>
+          <input
+            onfocus="toggleOverlay(true)"
+            oninput="validateInput()"
+            class="input__number"
+            type="tel"
+            placeholder="Un numero? C'est parti !"
+            min="8"
+            max="11"
+          />
+        </div>
+        <h3 class="text-blue">Probleme avec votre numero?</h3>
+        <button
+          onclick="handleSend(0)"
+          class="btn__send"
+          data-stages="0:C'est parti !, 30:Merci de patienter..., 60: Encore un instant, 80: On arrive au bout..., 90: C'est bientot fini..., 100: Bon..."
+        >
+          <span>C'est parti !</span>
+        </button>
+        <div class="keypad">
+          <button><span class="number">1</span></button>
+          <button>
+            <span class="number">2</span>
+            <span class="letter">ABC</span>
+          </button>
+          <button>
+            <span class="number">3</span>
+            <span class="letter">DEF</span>
+          </button>
+          <button>
+            <span class="number">4</span>
+            <span class="letter">GHI</span>
+          </button>
+          <button>
+            <span class="number">5</span>
+            <span class="letter">JKL</span>
+          </button>
+          <button>
+            <span class="number">6</span>
+            <span class="letter">MNO</span>
+          </button>
+          <button>
+            <span class="number">7</span>
+            <span class="letter">PQRS</span>
+          </button>
+          <button>
+            <span class="number">8</span>
+            <span class="letter">TUV</span>
+          </button>
+          <button>
+            <span class="number">9</span>
+            <span class="letter">WXYZ</span>
+          </button>
+          <button><span class="number">0</span></button>
+          <button onclick="deleteInput()" class="delete">
+            <img src="./images/delete.png" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>
