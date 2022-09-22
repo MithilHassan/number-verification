@@ -122,9 +122,10 @@ function handleSend(counter) {
     screen.classList.add("screen2");
     document.getElementById("first").focus();
 
-    // input otp from keypad
+    // input otp from custom keypad
 
     let inp = -1;
+
     numbers.forEach((num) => {
       num.addEventListener("click", (event) => {
         if (event) {
@@ -136,19 +137,27 @@ function handleSend(counter) {
       });
     });
 
-    // delete otp
-
     document.querySelector(".delete").addEventListener("click", () => {
       if (inp >= 0) {
         inputs[inp].value = "";
         inp--;
       }
     });
+
+    // input otp from keyboard
+
+    document.addEventListener("keydown", function (event) {
+      if (event.code === "Backspace") {
+        if (inp >= 0) {
+          inputs[inp].focus();
+          inp--;
+        }
+      } else {
+        if (inp <= 2) {
+          inp++;
+          inputs[inp].focus();
+        }
+      }
+    });
   }
 }
-
-const handleOtp = (first, last) => {
-  if (first.value.length) {
-    document.getElementById(last).focus();
-  }
-};
