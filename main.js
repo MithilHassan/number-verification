@@ -147,7 +147,7 @@ function handleSend(counter) {
     // input otp from keyboard
 
     document.addEventListener("keydown", function (event) {
-      if (event.code === "Backspace") {
+      if (event.keyCode == 8) {
         if (inp >= 0) {
           inputs[inp].focus();
           inp--;
