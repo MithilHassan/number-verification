@@ -22,7 +22,6 @@ body {
   padding: 0px 20px;
   padding-top: 50px;
 }
-
 .slider__container {
   width: 100%;
 }
@@ -32,12 +31,10 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 100px;
-  transform: translateX(100%);
   transition: transform 0.3s linear;
 }
 .active.slide {
   display: flex;
-  transform: translateX(0);
 }
 .slide h1 {
   width: 100%;
@@ -89,7 +86,7 @@ body {
   z-index: 55;
 }
 .active.screen__overlay {
-  background: rgba(143, 143, 143, 0.243);
+  background: rgba(143, 143, 143, 0.4);
 }
 .screen__bottom {
   position: absolute;
@@ -97,7 +94,6 @@ body {
   left: 0;
   bottom: 0;
   background: #fff;
-  /* padding-top: 40px; */
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   text-align: center;
@@ -106,9 +102,9 @@ body {
 
 .input__container {
   display: flex;
-  padding: 10px 20px;
+  padding: 5px 10px;
   margin: 0px 20px;
-  margin-top: 40px;
+  margin-top: 20px;
   background: #f2f3f7;
   border: 2px solid #0582fe;
   border-radius: 10px;
@@ -139,6 +135,7 @@ body {
 
 .text-blue {
   font-weight: 600;
+  font-size: 16px;
   color: #0582fe;
   margin: 20px 0px;
 }
@@ -188,7 +185,7 @@ body {
   grid-template-columns: repeat(3, 1fr);
   background: #d1d3d9;
   padding: 10px;
-  padding-bottom: 50px;
+  padding-bottom: 20px;
   gap: 10px;
   transition: all 0.3s linear;
 }
@@ -260,8 +257,8 @@ button:nth-last-child(2) {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 50px;
-  gap: 100px;
+  justify-content: space-between;
+  height: 45vh;
 }
 
 .screen__center {
@@ -272,7 +269,7 @@ button:nth-last-child(2) {
 .inputs {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
   margin: 20px 0px;
 }
 .inputs input {
