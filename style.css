@@ -153,6 +153,7 @@ body {
   color: #fff;
   display: none;
   opacity: 0;
+  height: 50px;
   width: 100%;
   border-radius: 0;
   border-top-left-radius: 5px;
@@ -180,6 +181,7 @@ body {
 .validate.btn__send {
   background: rgba(0, 128, 255, 0.7);
   pointer-events: all;
+  cursor: pointer;
 }
 .active .btn__send {
   display: block;
