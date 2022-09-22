@@ -6,12 +6,14 @@
   padding: 0;
   font-family: "Poppins", sans-serif;
 }
-
+html {
+  font-size: 62.5%;
+}
 body {
-  overflow: hidden;
   height: 100vh;
   width: 100vw;
   background-image: linear-gradient(180deg, #a8d4e6, #f3edda);
+  overflow: hidden;
 }
 
 .mobile__screen {
@@ -24,24 +26,26 @@ body {
 }
 .slider__container {
   width: 100%;
-  height: 500px;
 }
 .slide {
   max-width: 500px;
   display: none;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
+  gap: 50px;
   transition: transform 0.3s linear;
 }
 .active.slide {
   display: flex;
 }
+.slide__title h1 {
+  font-size: 3rem;
+}
 .slide__title p {
   margin-top: 10px;
   color: #25316d;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 .slide img {
   width: 75%;
@@ -119,7 +123,7 @@ body {
   align-items: center;
   padding: 5px 10px;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 .input__flag img {
@@ -130,7 +134,7 @@ body {
   border: none;
   background: transparent;
   padding-left: 10px;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
   width: 100%;
   outline: none;
@@ -139,7 +143,7 @@ body {
 
 .text-blue {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #0582fe;
   margin: 20px 0px;
 }
@@ -160,7 +164,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 .btn__send::before {
   position: absolute;
@@ -204,7 +208,7 @@ button {
   border: none;
   border-radius: 10px;
   background: #fff;
-  font-size: 20px;
+  font-size: 2rem;
   display: grid;
   place-items: center;
   font-weight: 600;
@@ -216,7 +220,7 @@ button:active {
 }
 button .letter {
   margin-top: 20px;
-  font-size: 12px;
+  font-size: 1.4rem;
 }
 button .number {
   position: absolute;
@@ -259,12 +263,15 @@ button:nth-last-child(2) {
 }
 .screen2 .screen__2 {
   display: flex;
+  font-size: 1.6rem;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   height: 45vh;
 }
-
+.screen__2 h1 {
+  font-size: 3rem;
+}
 .screen__center {
   display: flex;
   flex-direction: column;
@@ -282,7 +289,7 @@ button:nth-last-child(2) {
   border-radius: 10px;
   border: none;
   background: #a8d4e6;
-  font-size: 20px;
+  font-size: 2rem;
   color: #0582fe;
   text-align: center;
 }
@@ -296,8 +303,22 @@ input:focus {
   cursor: pointer;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 55%;
+  }
   .active .keypad {
     display: none;
+  }
+}
+@media screen and (max-height: 650px) {
+  html {
+    font-size: 55%;
+  }
+  .mobile__screen {
+    padding-top: 20px;
+  }
+  .slide img {
+    width: 60%;
   }
 }
