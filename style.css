@@ -10,14 +10,13 @@ html {
   font-size: 62.5%;
 }
 body {
-  height: 100vh;
+  max-height: 100vh;
   width: 100vw;
   background-image: linear-gradient(180deg, #a8d4e6, #f3edda);
   overflow: hidden;
 }
 
 .mobile__screen {
-  position: relative;
   max-width: 500px;
   height: 100vh;
   margin: 0 auto;
@@ -86,8 +85,8 @@ body {
 
 .screen__overlay {
   position: fixed;
+  top: 0;
   left: 0;
-  bottom: 0;
   width: 100%;
   height: 100%;
   transition: all 0.3s linear;
@@ -97,15 +96,18 @@ body {
   background: rgba(143, 143, 143, 0.4);
 }
 .screen__bottom {
-  position: absolute;
+  position: fixed;
+  max-width: 500px;
   width: 100%;
-  left: 0;
+  height: max-content;
+  left: 50%;
   bottom: 0;
   background: #fff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   text-align: center;
   z-index: 99;
+  transform: translate(-50%);
 }
 
 .input__container {
