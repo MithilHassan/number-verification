@@ -294,3 +294,9 @@ input:focus {
   font-weight: 600;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .active .keypad {
+    display: none;
+  }
+}
