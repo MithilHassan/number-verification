@@ -309,7 +309,7 @@ button:nth-last-child(2) {
   height: 60px;
   width: 40px;
   border-radius: 10px;
-  border: none;
+  border: 2px solid transparent;
   background: #a8d4e6;
   font-size: 2rem;
   color: #0582fe;
