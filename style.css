@@ -1,20 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
 html {
   font-size: 62.5%;
 }
 body {
-  max-height: 100vh;
+  height: 100vh;
   width: 100vw;
   background-image: linear-gradient(180deg, #a8d4e6, #f3edda);
   overflow: hidden;
 }
+
+/* ==== SCREEN 1 ====== */
 
 .mobile__screen {
   max-width: 500px;
@@ -23,15 +25,19 @@ body {
   padding: 0px 20px;
   padding-top: 50px;
 }
+
+/*===== SLIDER =====*/
+
 .slider__container {
   width: 100%;
 }
 .slide {
-  max-width: 500px;
   display: none;
+  height: 60vh;
+  max-width: 100%;
   flex-direction: column;
   align-items: center;
-  gap: 50px;
+  justify-content: space-between;
   transition: transform 0.3s linear;
 }
 .active.slide {
@@ -41,24 +47,24 @@ body {
   font-size: 3rem;
 }
 .slide__title p {
-  margin-top: 10px;
   color: #25316d;
-  font-weight: 600;
   font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 10px;
 }
 .slide img {
   width: 75%;
 }
 
-/* PROGRESS BAR */
+/*===== PROGRESS BAR =====*/
 
 .progress__bar {
+  position: relative;
   height: 5px;
   width: 100%;
-  position: relative;
+  background-color: #c2e2ff;
   margin-bottom: 2rem;
   border-radius: 10px;
-  background-color: #c2e2ff;
 }
 
 .progress__animation {
@@ -80,9 +86,15 @@ body {
 }
 
 .slider__count .count {
-  border-right: 10px solid #a8d4e6;
+  border-left: 5px solid #a8d4e6;
+  border-right: 5px solid #a8d4e6;
 }
-
+.count:first-child {
+  border-left: none;
+}
+.count:last-child {
+  border-right: none;
+}
 .screen__overlay {
   position: fixed;
   top: 0;
@@ -110,9 +122,11 @@ body {
   transform: translate(-50%);
 }
 
+/*====== NUMBER INPUT ====== */
+
 .input__container {
   display: flex;
-  padding: 5px 10px;
+  padding: 15px;
   margin: 0px 20px;
   margin-top: 20px;
   background: #f2f3f7;
@@ -120,35 +134,44 @@ body {
   border-radius: 10px;
 }
 .input__flag {
+  background: #fff;
   display: flex;
-  gap: 10px;
   align-items: center;
+  gap: 10px;
   padding: 5px 10px;
+  font-size: 1.8rem;
   font-weight: 600;
-  font-size: 1.6rem;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  cursor: pointer;
 }
-
 .input__flag img {
   height: 20px;
 }
-
 .input__number {
   border: none;
   background: transparent;
-  padding-left: 10px;
-  font-size: 1.6rem;
+  padding-left: 20px;
+  font-size: 1.8rem;
   font-weight: 600;
   width: 100%;
   outline: none;
   letter-spacing: 2px;
 }
-
-.text-blue {
+.input__number::placeholder {
+  letter-spacing: initial;
+  color: #d1d3d9;
+  font-weight: 500;
+}
+.text__blue {
   font-weight: 600;
   font-size: 1.6rem;
   color: #0582fe;
   margin: 20px 0px;
 }
+
+/* ===== SEND BUTTON ===== */
+
 .btn__send {
   background: #7b91b0;
   position: relative;
@@ -189,6 +212,9 @@ body {
   display: block;
   opacity: 1;
 }
+
+/* ===== CUSTOM KEYPAD ===== */
+
 .keypad {
   max-width: 500px;
   width: 100%;
@@ -241,26 +267,18 @@ button .number {
 button:nth-last-child(2) {
   grid-column: 2/3;
 }
-.screen__2 {
-  display: none;
-}
 
-.screen2 .screen__1 {
-  display: none;
-}
-.screen2 .input__container {
-  display: none;
-}
-.screen2 .btn__send {
-  display: none;
-}
-.screen2 h3.text-blue {
-  display: none;
-}
+/* ===== SCREEN 2 ======== */
 
+.screen__2,
+.screen2 .screen__1,
+.screen2 .input__container,
+.screen2 .btn__send,
+.screen2 h3.text__blue,
 .screen2 .screen__overlay {
   display: none;
 }
+
 .screen2 .keypad {
   display: grid;
   opacity: 1;
@@ -306,6 +324,8 @@ input:focus {
   font-weight: 600;
   cursor: pointer;
 }
+
+/* ===== MEDIA QUERIES ===== */
 
 @media screen and (max-width: 768px) {
   html {

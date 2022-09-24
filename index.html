@@ -65,9 +65,12 @@
         <h1>Vérification du numéro</h1>
         <div class="screen__center">
           <h3>Tapez le code ou cliquez sur le lien reçu au</h3>
-          <h3 class="text-blue">+33 6 25 33 55 22</h3>
+          <h3 class="text__blue">+33 6 25 33 55 22</h3>
+
+          <!-- otp input -->
+
           <div class="inputs">
-            <input id="first" maxlength="1" type="tel" />
+            <input id="first" maxlength="1" type="tel" autocomplete="off" />
             <input id="second" maxlength="1" type="tel" />
             <input id="third" maxlength="1" type="tel" />
             <input id="last" maxlength="1" type="tel" />
@@ -82,10 +85,10 @@
       <div class="screen__bottom">
         <!-- input number -->
 
-        <div class="input__container">
+        <form class="input__container">
           <div class="input__flag">
-            <img src="./images/france.png" alt="" />
-            <span>33</span>
+            <img src="./images/france.png" alt="">
+            <span>+33</span>
           </div>
           <input
             class="input__number"
@@ -93,18 +96,16 @@
             oninput="validateInput()"
             type="tel"
             placeholder="Un numero? C'est parti !"
-            min="8"
-            max="11"
           />
-        </div>
-        <h3 class="text-blue">Probleme avec votre numero?</h3>
-        <div
+        </form>
+        <h3 class="text__blue">Probleme avec votre numero?</h3>
+        <button
           onclick="handleSend(0)"
           class="btn__send"
           data-stages="0:C'est parti !, 30:Merci de patienter..., 60: Encore un instant, 80: On arrive au bout..., 90: C'est bientot fini..., 100: Bon..."
         >
           <span>C'est parti !</span>
-        </div>
+        </button>
 
         <!-- keypad -->
 

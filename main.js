@@ -87,8 +87,8 @@ const toggleOverlay = (isFocus) => {
 
 const validateInput = () => {
   let input = getInput();
-  input.length >= 10 && sendButton.classList.add("validate");
-  input.length <= 10 && sendButton.classList.remove("validate");
+  input.length >= 5 && sendButton.classList.add("validate");
+  input.length <= 5 && sendButton.classList.remove("validate");
 };
 
 // Handle Send Button
@@ -161,3 +161,7 @@ function handleSend(counter) {
     });
   }
 }
+
+document.addEventListener("keydown", (event) =>{
+  console.log(event);
+})
