@@ -147,7 +147,7 @@ function handleSend(counter) {
     // input otp from keyboard
 
     document.addEventListener("keydown", function (event) {
-      if (event.keyCode == 8) {
+      if (event.keyCode == 8 || event.keyCode == 229) {
         if (inp >= 0) {
           inputs[inp].focus();
           inp--;
@@ -161,7 +161,3 @@ function handleSend(counter) {
     });
   }
 }
-
-document.addEventListener("keydown", (event) =>{
-  console.log(event);
-})
